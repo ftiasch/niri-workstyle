@@ -1,0 +1,7 @@
+[project]
+name = "niri-workstyle"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "coloredlogs>=15.0.1",
+]
