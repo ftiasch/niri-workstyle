@@ -1,7 +1,32 @@
 [project]
 name = "niri-workstyle"
 version = "0.1.0"
+description = "Local workspace and output policies for niri"
 requires-python = ">=3.12"
-dependencies = [
-    "coloredlogs>=15.0.1",
+dependencies = []
+
+[project.scripts]
+niri-workstyle = "niri_workstyle.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["ANN", "B", "E4", "E7", "E9", "F", "I", "LOG", "PL", "PTH", "RET", "RUF", "SIM", "UP"]
+
+
+[tool.ty.environment]
+python-version = "3.12"
+
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.4",
+    "ty>=0.0.74",
 ]
