@@ -12,6 +12,7 @@ class StateChange:
     """Policy-relevant effects of one state transition."""
 
     workspace_ids: frozenset[int] = frozenset()
+    opened_window_id: int | None = None
     rename_workspaces: bool = False
     reconcile_layout: bool = False
     refresh_outputs: bool = False
@@ -109,6 +110,7 @@ class NiriState:
         self.windows[window["id"]] = window
         return StateChange(
             workspace_ids=frozenset(workspace_ids),
+            opened_window_id=window["id"] if old_window is None else None,
             rename_workspaces=True,
             reconcile_layout=True,
         )
